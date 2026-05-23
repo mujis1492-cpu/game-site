@@ -1,0 +1,220 @@
+:root {
+  --blue: #0057b8;
+  --sky: #8ed6ff;
+  --gold: #ffca28;
+  --red: #d62828;
+  --green: #2a9d8f;
+  --brown: #8b4513;
+  --cream: #fff7df;
+  --dark: #263238;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #bdefff 0%, #fff3bd 45%, #dff7df 100%);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, var(--blue), #003b73);
+    color: white;
+    padding: 18px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 7px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    overflow: hidden; 
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* 🔴 ХЭЭНҮҮДИЙГ ОРУУЛАХ */
+    background-image: 
+        url('alkhan-khee.png'),        /* 1. Алхан хээ */
+        url('cloud-pattern.png'),       /* 2. Үүлэн хээ */
+        url('ulzii-khee.png');          /* 3. Өлзий хээ */
+    
+    /* 🔴 ХЭЭНҮҮДИЙН БАЙРШИЛ */
+    background-position: 
+        top center,                    /* Алхан хээ: Дээд ирмэгт */
+        left center,                   /* Үүлэн хээ: Зүүн талд */
+        center center;                 /* Өлзий хээ: Яг голд нь */
+    
+    /* 🔴 ХЭЭНҮҮДИЙН ХЭМЖЭЭ */
+    background-size: 
+        auto 12px,                     /* Алхан хээ: Нарийн тууз (Өндөр 12px) */
+        contain,                       /* Үүлэн хээ: Багтах хэмжээгээр */
+        auto 45px;                     /* Өлзий хээ: Өндрийг нь header-тээ тааруулав */
+    
+    /* 🔴 ХЭЭНҮҮДИЙН ДАВТАГДАХ ХЭЛБЭР */
+    background-repeat: 
+        repeat-x,                      /* Алхан хээ: Хэвтээ чиглэлд тууз шиг үргэлжилнэ */
+        no-repeat,                     /* Үүлэн хээ: Давтагдахгүй */
+        repeat-x;                      /* Өлзий хээ: Хэвтээ чиглэлд цуварна */
+
+    opacity: 0.18;             
+    mix-blend-mode: overlay;   /* ⚠️ Хэрэв хээ харагдахгүй байвал үүнийг устгаарай */
+    pointer-events: none;      
+    z-index: 1;
+}
+
+/* Лого, Цэс, Хэлний товчлуурууд хээнийхээ ДЭЭР тод харагдах тохиргоо */
+.logo, nav, .lang button, .access button {
+    position: relative;
+    z-index: 2;
+}
+.logo { font-size: 24px; font-weight: 900; }
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 8px;
+  font-weight: bold;
+}
+
+nav a:hover { color: var(--gold); }
+
+.lang button, .access button {
+  border: none;
+  background: var(--gold);
+  color: #1d1d1d;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 3px;
+}
+
+.hero {
+  min-height: 420px;
+  padding: 70px 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.35)),
+              radial-gradient(circle at 20% 20%, #ffca28 0 8%, transparent 9%),
+              linear-gradient(160deg, #00a8e8, #2a9d8f 60%, #8bc34a);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 { font-size: 54px; margin: 0; text-shadow: 3px 4px 0 rgba(0,0,0,.18); }
+
+.btn {
+  border: none;
+  background: linear-gradient(135deg, var(--red), #ff7b00);
+  color: white;
+  padding: 14px 22px;
+  border-radius: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 6px 0 rgba(0,0,0,.22);
+  margin: 6px;
+}
+
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(3px); box-shadow: 0 3px 0 rgba(0,0,0,.22); }
+.btn.green { background: linear-gradient(135deg, #2a9d8f, #0b7a75); }
+.btn.blue { background: linear-gradient(135deg, #0057b8, #00a8e8); }
+
+section { max-width: 1180px; margin: auto; padding: 42px 20px; }
+
+h2 { color: #003b73; border-left: 9px solid var(--gold); padding-left: 12px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card, .panel {
+  background: rgba(255,255,255,.96);
+  border-radius: 26px;
+  padding: 24px;
+  box-shadow: 0 9px 24px rgba(0,0,0,.14);
+  border: 3px solid rgba(255,202,40,.55);
+}
+
+.icon { font-size: 60px; text-align: center; }
+
+.scorebar {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #fff0a8, #ffd6e7, #d8fff3);
+  padding: 16px;
+  border-radius: 22px;
+  font-weight: bold;
+}
+
+.progress {
+  height: 26px;
+  background: #e0e0e0;
+  border-radius: 999px;
+  margin: 16px 0;
+  overflow: hidden;
+}
+
+.fill { height: 100%; width: 0%; background: var(--green); transition: .4s; }
+
+.game-box {
+  background: #fffdf3;
+  border: 5px dashed var(--gold);
+  border-radius: 28px;
+  padding: 24px;
+  min-height: 230px;
+}
+
+.choices button {
+  display: block; width: 100%; text-align: left;
+  margin: 9px 0; padding: 14px; border-radius: 16px;
+  border: 3px solid #ffd166; background: #fff4cf;
+  font-weight: bold; cursor: pointer;
+}
+
+.choices button:hover { background: #ffdd57; }
+
+.shagai-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 35px; }
+
+.shagai {
+  width: 82px; height: 82px; display: flex; align-items: center; justify-content: center;
+  font-size: 40px; background: white; border: 4px solid #fb8500;
+  border-radius: 24px; cursor: pointer;
+}
+
+.shagai.selected { background: #ffdd57; transform: scale(1.1); }
+
+.reward {
+  display: none; text-align: center; padding: 26px;
+  border: 5px solid var(--gold); border-radius: 30px;
+  background: white; animation: pop .45s ease;
+}
+
+.card-img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    margin-bottom: 12px;
+    border-radius: 14px;
+}
+
+@keyframes pop { from { transform: scale(.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* Accessibility Modes */
+.large-text { font-size: 22px; }
+.contrast { background: #111 !important; color: white !important; }
+.contrast .card, .contrast .panel { background: #222; border-color: white; color: white; }
+
+footer { background: #003b73; color: white; text-align: center; padding: 25px; }
